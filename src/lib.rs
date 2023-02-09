@@ -1,8 +1,14 @@
-#![deny(clippy::all)]
+#![allow(dead_code)]
+#![allow(unreachable_code)]
+#![allow(clippy::disallowed_names)]
+#![allow(clippy::uninlined_format_args)]
 
-use napi_derive::napi;
+#[macro_use]
+extern crate napi_derive;
 
-#[napi]
-pub fn plus_100(input: u32) -> u32 {
-    input + 100
-}
+#[cfg(feature = "snmalloc")]
+#[global_allocator]
+static ALLOC: snmalloc_rs::SnMalloc = snmalloc_rs::SnMalloc;
+
+mod client;
+mod user;

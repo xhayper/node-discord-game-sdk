@@ -1,32 +1,32 @@
 {
-  "name": "@xhayper/discord-game-sdk-freebsd-x64",
-  "version": "1.0.0",
-  "os": [
-    "freebsd"
-  ],
-  "cpu": [
-    "x64"
-  ],
-  "main": "discord-game-sdk.freebsd-x64.node",
-  "files": [
-    "discord-game-sdk.freebsd-x64.node"
-  ],
-  "description": "Native binding for discord-sdk crate",
-  "keywords": [
-    "napi-rs",
-    "NAPI",
-    "N-API",
-    "Rust",
-    "node-addon",
-    "node-addon-api"
-  ],
-  "license": "ISC",
-  "engines": {
-    "node": ">= 10"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "repository": "git@github.com:xhayper/node-discord-game-sdk.git"
+    "name": "@xhayper/discord-game-sdk-freebsd-x64",
+    "version": "1.0.0",
+    "os": [
+        "freebsd"
+    ],
+    "cpu": [
+        "x64"
+    ],
+    "main": "discord-game-sdk.freebsd-x64.node",
+    "files": [
+        "discord-game-sdk.freebsd-x64.node"
+    ],
+    "description": "Native binding for discord-sdk crate",
+    "keywords": [
+        "napi-rs",
+        "NAPI",
+        "N-API",
+        "Rust",
+        "node-addon",
+        "node-addon-api"
+    ],
+    "license": "ISC",
+    "engines": {
+        "node": ">= 10"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/",
+        "access": "public"
+    },
+    "repository": "git@github.com:xhayper/node-discord-game-sdk.git"
 }
