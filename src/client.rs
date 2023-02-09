@@ -1,4 +1,4 @@
-// use crate::user::DiscordUser;
+use crate::user::DiscordUser;
 use discord_sdk::user::User;
 use discord_sdk::wheel::{UserState, Wheel};
 use discord_sdk::{Discord, DiscordApp, Subscriptions};
@@ -41,16 +41,16 @@ impl DiscordClient {
         })
     }
 
-    // #[napi(getter)]
-    // pub fn get_user(&self) -> Result<Option<DiscordUser>> {
-    //     if self.internal_user.is_none() {
-    //         return Ok(None);
-    //     }
+    #[napi(getter)]
+    pub fn get_user(&self) -> Result<Option<DiscordUser>> {
+        if self.internal_user.is_none() {
+            return Ok(None);
+        }
 
-    //     Ok(Some(DiscordUser::from_user(
-    //         self.internal_user.as_ref().unwrap().clone(),
-    //     )))
-    // }
+        Ok(Some(DiscordUser::from_user(
+            self.internal_user.as_ref().unwrap().clone(),
+        )))
+    }
 
     #[napi]
     pub async unsafe fn connect(&mut self) {

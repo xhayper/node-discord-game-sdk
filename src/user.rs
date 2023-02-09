@@ -1,22 +1,55 @@
-// use discord_sdk::user::User;
-// use napi::bindgen_prelude::Reference;
-// use napi_derive::napi;
+use discord_sdk::{user::User, Discord};
+use napi_derive::napi;
 
-// #[napi(js_name = "User")]
-// pub struct DiscordUser {
-//     internal_user: User,
-// }
+#[napi(js_name = "User")]
+pub struct DiscordUser {
+    internal_user: Option<User>,
+}
 
-// #[napi]
-// impl DiscordUser {
-//     pub fn with_user(user: User) -> Self {
-//         Self {
-//             internal_user: user,
-//         }
-//     }
+#[napi]
+impl DiscordUser {
+    #[napi(constructor)]
+    pub fn new() -> Self {
+        Self {
+            internal_user: None,
+        }
+    }
 
-//     #[napi(getter)]
-//     pub fn get_id(&self) -> String {
-//         self.internal_user.id.0.to_string()
-//     }
-// }
+    pub fn from_user(user: User) -> Self {
+        Self {
+            internal_user: Some(user),
+        }
+    }
+
+    #[napi(getter)]
+    pub fn get_username(&self) -> String {
+        if self.internal_user.is_none() {
+            return String::new();
+        }
+
+        self.internal_user.as_ref().unwrap().username.clone()
+    }
+
+    #[napi(getter)]
+    pub fn get_discriminator(&self) -> String {
+        if self.internal_user.is_none() {
+            return String::new();
+        }
+
+        self.internal_user
+            .as_ref()
+            .unwrap()
+            .discriminator
+            .unwrap()
+            .to_string()
+    }
+
+    #[napi(getter)]
+    pub fn get_id(&self) -> String {
+        if self.internal_user.is_none() {
+            return String::new();
+        }
+
+        self.internal_user.as_ref().unwrap().id.0.to_string()
+    }
+}

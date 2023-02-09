@@ -228,6 +228,7 @@ if (!nativeBinding) {
     throw new Error(`Failed to load native binding`);
 }
 
-const { Client } = nativeBinding;
+const { Client, User } = nativeBinding;
 
 module.exports.Client = Client;
+module.exports.User = User;
