@@ -1,0 +1,32 @@
+{
+  "name": "@xhayper/discord-game-sdk-win32-ia32-msvc",
+  "version": "1.0.0",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "ia32"
+  ],
+  "main": "discord-game-sdk.win32-ia32-msvc.node",
+  "files": [
+    "discord-game-sdk.win32-ia32-msvc.node"
+  ],
+  "description": "Native binding for discord-sdk crate",
+  "keywords": [
+    "napi-rs",
+    "NAPI",
+    "N-API",
+    "Rust",
+    "node-addon",
+    "node-addon-api"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": "git@github.com:xhayper/node-discord-game-sdk.git"
+}

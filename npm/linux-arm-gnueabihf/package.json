@@ -1,0 +1,32 @@
+{
+  "name": "@xhayper/discord-game-sdk-linux-arm-gnueabihf",
+  "version": "1.0.0",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm"
+  ],
+  "main": "discord-game-sdk.linux-arm-gnueabihf.node",
+  "files": [
+    "discord-game-sdk.linux-arm-gnueabihf.node"
+  ],
+  "description": "Native binding for discord-sdk crate",
+  "keywords": [
+    "napi-rs",
+    "NAPI",
+    "N-API",
+    "Rust",
+    "node-addon",
+    "node-addon-api"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": "git@github.com:xhayper/node-discord-game-sdk.git"
+}

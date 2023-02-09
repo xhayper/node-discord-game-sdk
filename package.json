@@ -1,0 +1,80 @@
+{
+  "name": "@xhayper/discord-game-sdk",
+  "version": "1.0.0",
+  "description": "Native binding for discord-sdk crate",
+  "main": "index.js",
+  "repository": "git@github.com:xhayper/node-discord-game-sdk.git",
+  "license": "ISC",
+  "keywords": [
+    "napi-rs",
+    "NAPI",
+    "N-API",
+    "Rust",
+    "node-addon",
+    "node-addon-api"
+  ],
+  "files": [
+    "index.d.ts",
+    "index.js"
+  ],
+  "napi": {
+    "name": "discord-game-sdk",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-unknown-linux-musl",
+        "aarch64-pc-windows-msvc",
+        "armv7-unknown-linux-gnueabihf",
+        "x86_64-unknown-linux-musl",
+        "x86_64-unknown-freebsd",
+        "i686-pc-windows-msvc",
+        "universal-apple-darwin"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "bench": "node -r @swc-node/register benchmark/bench.ts",
+    "build": "napi build --platform --release --pipe \"prettier -w\"",
+    "build:debug": "napi build --platform --pipe \"prettier -w\"",
+    "format": "run-p format:prettier format:rs",
+    "format:prettier": "prettier . -w",
+    "format:rs": "cargo fmt",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "version": "napi version"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.14.7",
+    "@swc-node/register": "^1.5.6",
+    "@swc/core": "^1.3.34",
+    "ava": "^5.2.0",
+    "benny": "^3.7.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  },
+  "ava": {
+    "require": [
+      "@swc-node/register"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "timeout": "2m",
+    "workerThreads": false,
+    "environmentVariables": {
+      "TS_NODE_PROJECT": "./tsconfig.json"
+    }
+  },
+  "packageManager": "yarn@3.4.1"
+}
