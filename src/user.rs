@@ -1,4 +1,4 @@
-use discord_sdk::{user::User, Discord};
+use discord_sdk::user::User;
 use napi_derive::napi;
 
 #[napi(js_name = "User")]
@@ -31,17 +31,12 @@ impl DiscordUser {
     }
 
     #[napi(getter)]
-    pub fn get_discriminator(&self) -> String {
+    pub fn get_discriminator(&self) -> u32 {
         if self.internal_user.is_none() {
-            return String::new();
+            return 0;
         }
 
-        self.internal_user
-            .as_ref()
-            .unwrap()
-            .discriminator
-            .unwrap()
-            .to_string()
+        self.internal_user.as_ref().unwrap().discriminator.unwrap()
     }
 
     #[napi(getter)]
